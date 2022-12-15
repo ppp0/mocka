@@ -74,12 +74,9 @@ trait OverridableTrait {
     }
 
     /**
-     * @param string $name
-     * @param array  $arguments
-     * @return mixed
      * @throws Exception
      */
-    private function _callMethod($name, array $arguments) {
+    private function _callMethod(string $name, array $arguments): mixed {
         $classDefinition = new ClassDefinition(__CLASS__);
         $originalMethod = $classDefinition->findOriginalMethod($name);
 
@@ -111,12 +108,9 @@ trait OverridableTrait {
     }
 
     /**
-     * @param string $name
-     * @param array  $arguments
-     * @return mixed
      * @throws Exception
      */
-    private static function _callStaticMethod($name, array $arguments) {
+    private static function _callStaticMethod(string $name, array $arguments): mixed {
         $classDefinition = new ClassDefinition(get_called_class());
         $originalMethod = $classDefinition->findOriginalMethod($name);
         
